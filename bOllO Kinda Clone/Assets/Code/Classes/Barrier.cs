@@ -27,7 +27,7 @@ public class Barrier : MonoBehaviour
 
 	bool StagesLeft ()
 	{
-		if (_Stages > 0)
+		if (_Stages > 1)
 		{
 			_Stages--;
 			return true;

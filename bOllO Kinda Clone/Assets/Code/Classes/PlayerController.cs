@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
+	public float Speed { get {return _Speed;} set {_Speed = value;} }
+
 	[SerializeField] private float _Speed = 5.0f;
 
 	private Directions _CurrentDirection = Directions.Still;
@@ -48,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
 	Directions GetDirection ()
 	{
-		if (_IsFirstClick)
+		if (!_IsFirstClick)
 		{
 			_IsFirstClick = !_IsFirstClick;
 			return Directions.Left;
@@ -91,6 +93,7 @@ public class PlayerController : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag ("Barrier"))
 		{
+			//TODO: Change to switch statement.
 			if(_CurrentDirection == Directions.Forward)
 			{
 				ChangeDirection (Directions.Back);
